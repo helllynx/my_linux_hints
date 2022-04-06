@@ -15,11 +15,17 @@ At first remove db:
 sudo pacman -Scc
 ```
 
-if it not helped
+if it not helped edit `/etc/pacman.conf` change `SigLevel` to `Required DatabaseNever`
+
+```
+SigLevel    = Required DatabaseNever
+```
+
+then
 
 ```
 sudo pacman-key --lsign-key EndeavourOS
 sudo pacman -S endeavouros-keyring
 ```
 
-then update again.
+then update again and don't forget to revert `SigLevel` in `/etc/pacman.conf` back to `DatabaseOptional`.
